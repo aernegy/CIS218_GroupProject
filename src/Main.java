@@ -1,10 +1,7 @@
 import java.io.*;
-import java.lang.reflect.Array;
-import java.nio.Buffer;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 class Main {
     private final BufferedReader userInput;
@@ -13,9 +10,9 @@ class Main {
     Main() {
         String mainMenu = loadMenuText("mainMenu.txt");
         String errorMessage = loadMenuText("menuError.txt");
-        ArrayList<ArrayList> students = loadRecords("studentRecords.txt");
-        ArrayList<ArrayList> faculty = loadRecords("facultyRecords.txt");
-        ArrayList<ArrayList> staff = loadRecords("staffRecords.txt");
+        ArrayList<ArrayList<String>> students = loadRecords("studentRecords.txt");
+        ArrayList<ArrayList<String>> faculty = loadRecords("facultyRecords.txt");
+        ArrayList<ArrayList<String>> staff = loadRecords("staffRecords.txt");
 
         userInput = new BufferedReader(new InputStreamReader(System.in));
 

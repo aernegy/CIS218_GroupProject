@@ -1,5 +1,4 @@
 import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.io.*;
 
@@ -33,7 +32,7 @@ public class View {
         System.out.println("--------------------");
 
         for (ArrayList<String> record : records) {
-            String row = Integer.toString(recordNo) + " - " + record.get(0);
+            String row = recordNo + " - " + record.getFirst();
 
             if (column1) {
                 System.out.printf("%-50s", row);
