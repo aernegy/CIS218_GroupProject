@@ -1,0 +1,20 @@
+Nicholas Weaver,1129346,Mathematics,150000
+Emily Rodriguez,2234578,Computer Science,165000
+Michael Chen,3345690,Physics,142000
+Sarah Patel,4456712,Biology,138000
+David Thompson,5567834,History,112000
+Rachel Kim,6678956,English Literature,105000
+James Wilson,7789078,Chemistry,155000
+Olivia Martinez,8890190,Economics,128000
+Robert Garcia,9901212,Psychology,118000
+Sophia Lee,1012334,Political Science,122000
+Daniel Brown,1123456,Mechanical Engineering,172000
+Ava Taylor,1234578,Philosophy,98000
+William Anderson,1345690,Environmental Science,135000
+Isabella Thomas,1456712,Art History,104000
+Christopher Moore,1567834,Statistics,148000
+Mia Jackson,1678956,Sociology,115000
+Alexander White,1789078,Neuroscience,158000
+Charlotte Harris,1890190,Anthropology,109000
+Benjamin Clark,1901212,Computer Engineering,175000
+Zoe Lewis,2012334,Linguistics,101000481msFast
