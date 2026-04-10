@@ -1,0 +1,10 @@
+--------------------
+SCHOOL RECORDS
+
+1 - Students
+2 - Faculty
+3 - Staff
+4 - Search
+5 - Add
+6 - Delete
+Q - Quit
