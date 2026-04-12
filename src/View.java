@@ -1,16 +1,13 @@
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.io.*;
-import static Misc.Utility.loadMenuText;
 
 public class View implements Menu {
-    /* Use this class to load the list of students, faculty, or staff */
     static final HashMap<String, Runnable> menuOptions = new HashMap<>();
 
     View(ArrayList<ArrayList<String>> records, MenuControl menuControl) {
         for (int i = 0; i < records.size();) {
             int index = i;
-            menuOptions.put(Integer.toString(++i), () -> new Student_Details());
+            menuOptions.put(Integer.toString(++i), () -> menuControl.setMenu(new Student(records, index, menuControl)));
         }
         menuOptions.put("A", Add::new);
         menuOptions.put("Q", () -> menuControl.setMenu(new MainMenu(menuControl)));
