@@ -49,7 +49,7 @@ class Main implements Menu {
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error: " + e.getMessage());
         }
     }
 
@@ -65,7 +65,7 @@ class Main implements Menu {
                 result.add(line);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error: " + e.getMessage());
         }
 
         return result;
@@ -84,7 +84,7 @@ class Main implements Menu {
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error: " + e.getMessage());
         }
 
         return result;

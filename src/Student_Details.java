@@ -23,7 +23,7 @@ public class Student_Details implements Menu {
                     break;
                 }
 
-                print(new ArrayList<ArrayList<String>>(List.of(record)));
+                print(new ArrayList<>(List.of(record)));
 
                 if (error) {
                     System.out.println(errorMessage);
@@ -40,7 +40,7 @@ public class Student_Details implements Menu {
 
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error: " + e.getMessage());
         }
     }
 

@@ -44,7 +44,7 @@ public class View implements Menu {
 
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error: " + e.getMessage());
         }
     }
 
