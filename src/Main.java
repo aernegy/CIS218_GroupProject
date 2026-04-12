@@ -21,12 +21,11 @@ class Main implements Menu {
         menuOptions.put("1", () -> new View(students, userInput));
         menuOptions.put("2", () -> new View(faculty, userInput));
         menuOptions.put("3", () -> new View(staff, userInput));
-        menuOptions.put("Q", () -> quit());
+        menuOptions.put("Q", this::quit);
 
         boolean error = false;
 
         try {
-            menuLoop:
             while (true) {
                 if (quit) {
                     System.out.println("Program shutdown \nHasta la vista!");
