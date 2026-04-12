@@ -14,20 +14,12 @@ public class MainMenu implements Menu {
     }
 
 
-    public boolean checkUserInput(String input) {
-        return menuOptions.containsKey(input);
-    }
-
-
-    public void runUserInput(String input) {
-        menuOptions.get(input).run();
-    }
-
+    @Override
     public void print() {
         int optionNo = 1;
         boolean column1 = true;
 
-        System.out.println("--------------------\nSCHOOL RECORDS\n");
+        System.out.println("\n--------------------\nSCHOOL RECORDS\n");
 
         for (String line : this.mainMenu) {
             String row = optionNo + " - " + line;
@@ -53,4 +45,14 @@ public class MainMenu implements Menu {
     }
 
 
+    @Override
+    public boolean checkUserInput(String input) {
+        return menuOptions.containsKey(input);
+    }
+
+
+    @Override
+    public void runUserInput(String input) {
+        menuOptions.get(input.toUpperCase()).run();
+    }
 }

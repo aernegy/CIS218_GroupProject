@@ -1,5 +1,5 @@
 ID,TYPE,FULLNAME,MAJOR,GPA
-0029527,STUDENT,Jayden Chan Zhung Zhuo,Math,4.00
+0029527,STUDENT,Jayden Chan,Math,3.97
 0019425,STUDENT,Isaac Ulrich,Computer Science,4.00
 0129456,STUDENT,Liam Harkins,Computer Science,4.00
 0038471,STUDENT,Sophia Patel,Biology,3.67

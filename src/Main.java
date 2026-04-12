@@ -1,8 +1,10 @@
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import static Misc.Utility.loadMenuText;
+import static Misc.Utility.loadRecords;
+import static Misc.Utility.saveRecords;
+
 
 class Main implements MenuControl {
     Menu menu;
@@ -15,14 +17,15 @@ class Main implements MenuControl {
 
 
     Main() {
-        BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
         menu = new MainMenu(this);
-
         boolean error = false;
 
-        try {
+        try (BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in))) {
             while (true) {
                 if (quit) {
+                    saveRecords(students, "studentRecords.txt");
+                    saveRecords(faculty, "facultyRecords.txt");
+                    saveRecords(staff, "staffRecords.txt");
                     System.out.println("Program shutdown \nHasta la vista!");
                     break;
                 }
@@ -34,9 +37,9 @@ class Main implements MenuControl {
                     error = false;
                 }
 
-                String input = userInput.readLine().toUpperCase();
+                String input = userInput.readLine();
 
-                if (menu.checkUserInput(input)) {
+                if (menu.checkUserInput(input.toUpperCase())) {
                     menu.runUserInput(input);
                 } else {
                     error = true;
@@ -46,25 +49,6 @@ class Main implements MenuControl {
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }
-    }
-
-
-    static ArrayList<ArrayList<String>> loadRecords(String fileName) {
-        ArrayList<ArrayList<String>> result = new ArrayList<>();
-        String line;
-
-        try {
-            BufferedReader fileReader = new BufferedReader(new FileReader(fileName));
-
-            while ((line = fileReader.readLine()) != null) {
-                result.add(new ArrayList<>(Arrays.asList(line.split("\\s*,\\s*"))));
-            }
-
-        } catch (IOException e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-
-        return result;
     }
 
 
