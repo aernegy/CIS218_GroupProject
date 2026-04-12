@@ -1,61 +1,29 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.io.*;
+import static Misc.Utility.loadMenuText;
 
 public class View implements Menu {
     /* Use this class to load the list of students, faculty, or staff */
+    static final HashMap<String, Runnable> menuOptions = new HashMap<>();
 
-    static Boolean quit = false;
-
-    View(ArrayList<ArrayList<String>> records, BufferedReader userInput) {
-        String errorMessage = Main.loadMenuText("menuError.txt").getFirst();
-
-        HashMap<String, Runnable> menuOptions = new HashMap<>();
+    View(ArrayList<ArrayList<String>> records, MenuControl menuControl) {
         for (int i = 0; i < records.size();) {
             int index = i;
-            menuOptions.put(Integer.toString(++i), () -> new Student_Details(records.get(index), userInput));
+            menuOptions.put(Integer.toString(++i), () -> new Student_Details());
         }
         menuOptions.put("A", Add::new);
-        menuOptions.put("Q", this::quit);
-
-        boolean error = false;
-
-        try {
-            while (true) {
-                if (quit) {
-                    quit = false;
-                    break;
-                }
-
-                print(records);
-
-                if (error) {
-                    System.out.println(errorMessage);
-                    error = false;
-                }
-
-                String input = userInput.readLine().toUpperCase();
-
-                if (menuOptions.containsKey(input)) {
-                    menuOptions.get(input).run();
-                } else {
-                    error = true;
-                }
-
-            }
-        } catch (IOException e) {
-            System.out.println("Error: " + e.getMessage());
-        }
+        menuOptions.put("Q", () -> menuControl.setMenu(new MainMenu(menuControl)));
     }
 
 
-    public void print(ArrayList<ArrayList<String>> records) {
+    public void print() {
         int recordNo = 1;
         boolean column1 = true;
 
         System.out.println("--------------------");
 
-        for (ArrayList<String> record : records) {
+        for (ArrayList<String> record : Main.students) {
             String row = recordNo + " - " + record.getFirst();
 
             if (column1) {
@@ -78,7 +46,11 @@ public class View implements Menu {
     }
 
 
-    public void quit() {
-        quit = true;
+    public boolean checkUserInput(String input) {
+        return menuOptions.containsKey(input);
+    }
+
+    public void runUserInput(String input) {
+        menuOptions.get(input).run();
     }
 }

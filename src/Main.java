@@ -1,27 +1,21 @@
 import java.io.*;
-import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
-class Main implements Menu {
-    private final BufferedReader userInput;
+import static Misc.Utility.loadMenuText;
+
+class Main implements MenuControl {
+    Menu menu;
     static boolean quit = false;
 
+    static ArrayList<ArrayList<String>> students = loadRecords("studentRecords.txt");
+    static ArrayList<ArrayList<String>> faculty = loadRecords("facultyRecords.txt");
+    static ArrayList<ArrayList<String>> staff = loadRecords("staffRecords.txt");
+    String errorMessage = loadMenuText("menuError.txt").getFirst();
+
     Main() {
-        ArrayList<ArrayList<String>> mainMenu = new ArrayList<>(List.of(loadMenuText("mainMenu.txt")));
-        String errorMessage = loadMenuText("menuError.txt").getFirst();
-        ArrayList<ArrayList<String>> students = loadRecords("studentRecords.txt");
-        ArrayList<ArrayList<String>> faculty = loadRecords("facultyRecords.txt");
-        ArrayList<ArrayList<String>> staff = loadRecords("staffRecords.txt");
-
-        userInput = new BufferedReader(new InputStreamReader(System.in));
-
-        HashMap<String, Runnable> menuOptions = new HashMap<>();
-        menuOptions.put("1", () -> new View(students, userInput));
-        menuOptions.put("2", () -> new View(faculty, userInput));
-        menuOptions.put("3", () -> new View(staff, userInput));
-        menuOptions.put("Q", this::quit);
+        BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
+        menu = new MainMenu(this);
 
         boolean error = false;
 
@@ -32,7 +26,7 @@ class Main implements Menu {
                     break;
                 }
 
-                print(mainMenu);
+                menu.print();
 
                 if (error) {
                     System.out.println(errorMessage);
@@ -41,8 +35,8 @@ class Main implements Menu {
 
                 String input = userInput.readLine().toUpperCase();
 
-                if (menuOptions.containsKey(input)) {
-                    menuOptions.get(input).run();
+                if (menu.checkUserInput(input)) {
+                    menu.runUserInput(input);
                 } else {
                     error = true;
                 }
@@ -51,24 +45,6 @@ class Main implements Menu {
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }
-    }
-
-
-    static ArrayList<String> loadMenuText(String fileName) {
-        ArrayList<String> result = new ArrayList<>();
-        String line;
-
-        try {
-            BufferedReader fileReader = new BufferedReader(new FileReader(fileName));
-
-            while ((line = fileReader.readLine()) != null) {
-                result.add(line);
-            }
-        } catch (IOException e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-
-        return result;
     }
 
 
@@ -91,40 +67,14 @@ class Main implements Menu {
     }
 
 
-    public void print(ArrayList<ArrayList<String>> mainMenu) {
-        int optionNo = 1;
-        boolean column1 = true;
-
-        System.out.println("--------------------\nSCHOOL RECORDS\n");
-
-        for (String line : mainMenu.getFirst()) {
-            String row = optionNo + " - " + line;
-
-            if (column1) {
-                System.out.printf("%-50s", row);
-
-            } else {
-                System.out.printf("%-50s", row);
-                System.out.println();
-            }
-
-            optionNo++;
-
-            column1 = !column1;
-        }
-
-        if (!column1) {
-            System.out.println();
-        }
-
-        System.out.println("\nA - Add\nQ - Return to main menu\n");
+    public void setMenu(Menu newMenu) {
+        this.menu = newMenu;
     }
 
 
-    public void quit() {
+    static public void quit() {
         quit = true;
     }
-
 
     static void main(String[] args) {
         new Main();

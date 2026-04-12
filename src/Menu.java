@@ -1,7 +1,11 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public interface Menu {
-    public void print(ArrayList<ArrayList<String>> records);
+    public boolean checkUserInput(String input);
 
-    public void quit();
+    public void runUserInput(String input);
+
+    public void print();
+
 }
