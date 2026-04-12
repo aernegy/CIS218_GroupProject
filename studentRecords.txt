@@ -1,20 +1,21 @@
-Jayden Chan Zhung Zhuo,0029527,Math,4.00
-Isaac Ulrich,0019425,Computer Science,4.00
-Liam Harkins, 0129456,Computer Science,4.00
-Sophia Patel,0038471,Biology,3.67
-Emma Rodriguez,0098742,Mechanical Engineering,4.00
-Noah Kim,0045618,Business Administration,3.45
-Olivia Chen,0087459,Psychology,3.78
-Lucas Thompson,0023147,Computer Science,3.91
-Ava Martinez,0078923,Electrical Engineering,3.55
-Mason Lee,0019876,Mathematics,4.00
-Isabella Wong,0056784,Data Science,3.88
-Ethan Garcia,0034567,Finance,3.72
-Charlotte Brown,0091234,Biology,3.95
-Amir Khan,0067891,Computer Engineering,3.80
-Mia Anderson,0045678,English Literature,3.65
-Alexander Rossi,0089012,Physics,3.98
-Zoe Nakamura,0023456,Neuroscience,4.00
-Benjamin Dubois,0076543,International Relations,3.70
-Harper Singh,0054321,Chemical Engineering,3.82
-Daniel Okoro,0018765,Computer Science,3.75
+ID,TYPE,FULLNAME,MAJOR,GPA
+0029527,STUDENT,Jayden Chan Zhung Zhuo,Math,4.00
+0019425,STUDENT,Isaac Ulrich,Computer Science,4.00
+0129456,STUDENT,Liam Harkins,Computer Science,4.00
+0038471,STUDENT,Sophia Patel,Biology,3.67
+0098742,STUDENT,Emma Rodriguez,Mechanical Engineering,4.00
+0045618,STUDENT,Noah Kim,Business Administration,3.45
+0087459,STUDENT,Olivia Chen,Psychology,3.78
+0023147,STUDENT,Lucas Thompson,Computer Science,3.91
+0078923,STUDENT,Ava Martinez,Electrical Engineering,3.55
+0019876,STUDENT,Mason Lee,Mathematics,4.00
+0056784,STUDENT,Isabella Wong,Data Science,3.88
+0034567,STUDENT,Ethan Garcia,Finance,3.72
+0091234,STUDENT,Charlotte Brown,Biology,3.95
+0067891,STUDENT,Amir Khan,Computer Engineering,3.80
+0045678,STUDENT,Mia Anderson,English Literature,3.65
+0089012,STUDENT,Alexander Rossi,Physics,3.98
+0023456,STUDENT,Zoe Nakamura,Neuroscience,4.00
+0076543,STUDENT,Benjamin Dubois,International Relations,3.70
+0054321,STUDENT,Harper Singh,Chemical Engineering,3.82
+0018765,STUDENT,Daniel Okoro,Computer Science,3.75

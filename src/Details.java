@@ -1,15 +1,17 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Student implements Menu {
+public class Details implements Menu {
     static final HashMap<String, Runnable> menuOptions = new HashMap<>();
+    ArrayList<String> columns;
     ArrayList<String> record;
 
-    Student(ArrayList<ArrayList<String>> records, int index, MenuControl menuControl) {
+    Details(ArrayList<ArrayList<String>> records, int index, MenuControl menuControl) {
         menuOptions.put("U", Update::new);
         menuOptions.put("D", Delete::new);
         menuOptions.put("Q", () -> menuControl.setMenu(new View(records, menuControl)));
 
+        this.columns = records.getFirst();
         this.record = records.get(index);
     }
 
@@ -17,10 +19,9 @@ public class Student implements Menu {
     public void print() {
         System.out.println("--------------------");
 
-        System.out.println("NAME: " + record.getFirst());
-        System.out.println("ID: " + record.get(1));
-        System.out.println("MAJOR: " + record.get(2));
-        System.out.println("GPA: " + record.getLast());
+        for (int i = 0; i < this.columns.size(); i++) {
+            System.out.println(this.columns.get(i) + ": " + record.get(i));
+        }
 
         System.out.println("\nU - Update details\nD - Delete record\nQ - Return");
     }

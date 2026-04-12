@@ -3,14 +3,18 @@ import java.util.HashMap;
 
 public class View implements Menu {
     static final HashMap<String, Runnable> menuOptions = new HashMap<>();
+    ArrayList<ArrayList<String>> records;
+
 
     View(ArrayList<ArrayList<String>> records, MenuControl menuControl) {
-        for (int i = 0; i < records.size();) {
+        for (int i = 1; i < records.size(); i++) {
             int index = i;
-            menuOptions.put(Integer.toString(++i), () -> menuControl.setMenu(new Student(records, index, menuControl)));
+            menuOptions.put(Integer.toString(i), () -> menuControl.setMenu(new Details(records, index, menuControl)));
         }
         menuOptions.put("A", Add::new);
         menuOptions.put("Q", () -> menuControl.setMenu(new MainMenu(menuControl)));
+
+        this.records = records;
     }
 
 
@@ -20,8 +24,8 @@ public class View implements Menu {
 
         System.out.println("--------------------");
 
-        for (ArrayList<String> record : Main.students) {
-            String row = recordNo + " - " + record.getFirst();
+        for (int i = 1; i < records.size(); i++) {
+            String row = recordNo + " - " + records.get(i).get(2);
 
             if (column1) {
                 System.out.printf("%-50s", row);
@@ -46,6 +50,7 @@ public class View implements Menu {
     public boolean checkUserInput(String input) {
         return menuOptions.containsKey(input);
     }
+
 
     public void runUserInput(String input) {
         menuOptions.get(input).run();

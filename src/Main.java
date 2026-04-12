@@ -13,6 +13,7 @@ class Main implements MenuControl {
     static ArrayList<ArrayList<String>> staff = loadRecords("staffRecords.txt");
     String errorMessage = loadMenuText("menuError.txt").getFirst();
 
+
     Main() {
         BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
         menu = new MainMenu(this);
@@ -75,6 +76,7 @@ class Main implements MenuControl {
     static public void quit() {
         quit = true;
     }
+
 
     static void main(String[] args) {
         new Main();
