@@ -1,33 +1,58 @@
-import java.io.BufferedReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.io.*;
 
-public class View {
+public class View implements Menu {
     /* Use this class to load the list of students, faculty, or staff */
 
-    View(ArrayList records, BufferedReader userInput) {
-        String errorMessage = Main.loadMenuText("menuError.txt");
+    static Boolean quit = false;
+
+    View(ArrayList<ArrayList<String>> records, BufferedReader userInput) {
+        String errorMessage = Main.loadMenuText("menuError.txt").getFirst();
+
+        HashMap<String, Runnable> menuOptions = new HashMap<>();
+
+        for (int i = 0; i < records.size(); i++) {
+            int index = i;
+            menuOptions.put(Integer.toString(i), () -> new Student_Details(records.get(index), userInput));
+        }
+        menuOptions.put("A", Add::new);
+        menuOptions.put("Q", this::quit);
+
+        boolean error = false;
 
         try {
             while (true) {
-                listRecords(records);
+                if (quit) {
+                    quit = false;
+                    break;
+                }
+
+                print(records);
+
+                if (error) {
+                    System.out.println(errorMessage);
+                    error = false;
+                }
 
                 String input = userInput.readLine().toUpperCase();
 
-                if (input.equals("Q")) {
-                    break;
+                if (menuOptions.containsKey(input)) {
+                    menuOptions.get(input).run();
+                } else {
+                    error = true;
                 }
+
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
-    static void listRecords(ArrayList<ArrayList> records) {
+
+    public void print(ArrayList<ArrayList<String>> records) {
         int recordNo = 1;
-        Boolean column1 = true;
+        boolean column1 = true;
 
         System.out.println("--------------------");
 
@@ -36,7 +61,6 @@ public class View {
 
             if (column1) {
                 System.out.printf("%-50s", row);
-
             } else {
                 System.out.printf("%-50s", row);
                 System.out.println();
@@ -51,6 +75,11 @@ public class View {
             System.out.println();
         }
 
-        System.out.println("\nA - Add new student\nQ - Return to main menu\n");
+        System.out.println("\nA - Add\nQ - Return to main menu\n");
+    }
+
+
+    public void quit() {
+        quit = true;
     }
 }

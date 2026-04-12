@@ -2,14 +2,15 @@ import java.io.*;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
-class Main {
+class Main implements Menu {
     private final BufferedReader userInput;
-    static Boolean quit = false;
+    static boolean quit = false;
 
     Main() {
-        String mainMenu = loadMenuText("mainMenu.txt");
-        String errorMessage = loadMenuText("menuError.txt");
+        ArrayList<ArrayList<String>> mainMenu = new ArrayList<>(List.of(loadMenuText("mainMenu.txt")));
+        String errorMessage = loadMenuText("menuError.txt").getFirst();
         ArrayList<ArrayList<String>> students = loadRecords("studentRecords.txt");
         ArrayList<ArrayList<String>> faculty = loadRecords("facultyRecords.txt");
         ArrayList<ArrayList<String>> staff = loadRecords("staffRecords.txt");
@@ -22,7 +23,7 @@ class Main {
         menuOptions.put("3", () -> new View(staff, userInput));
         menuOptions.put("Q", () -> quit());
 
-        Boolean error = false;
+        boolean error = false;
 
         try {
             menuLoop:
@@ -31,7 +32,8 @@ class Main {
                     System.out.println("Program shutdown \nHasta la vista!");
                     break;
                 }
-                System.out.println(mainMenu);
+
+                print(mainMenu);
 
                 if (error) {
                     System.out.println(errorMessage);
@@ -53,15 +55,15 @@ class Main {
     }
 
 
-    static String loadMenuText(String fileName) {
-        String result = "";
+    static ArrayList<String> loadMenuText(String fileName) {
+        ArrayList<String> result = new ArrayList<>();
         String line;
 
         try {
             BufferedReader fileReader = new BufferedReader(new FileReader(fileName));
 
             while ((line = fileReader.readLine()) != null) {
-                result += line + "\n";
+                result.add(line);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -71,8 +73,8 @@ class Main {
     }
 
 
-    static ArrayList loadRecords(String fileName) {
-        ArrayList<ArrayList> result = new ArrayList<>();
+    static ArrayList<ArrayList<String>> loadRecords(String fileName) {
+        ArrayList<ArrayList<String>> result = new ArrayList<>();
         String line;
 
         try {
@@ -89,7 +91,38 @@ class Main {
         return result;
     }
 
-    static void quit() {
+
+    public void print(ArrayList<ArrayList<String>> mainMenu) {
+        int optionNo = 1;
+        boolean column1 = true;
+
+        System.out.println("--------------------\nSCHOOL RECORDS\n");
+
+        for (String line : mainMenu.getFirst()) {
+            String row = optionNo + " - " + line;
+
+            if (column1) {
+                System.out.printf("%-50s", row);
+
+            } else {
+                System.out.printf("%-50s", row);
+                System.out.println();
+            }
+
+            optionNo++;
+
+            column1 = !column1;
+        }
+
+        if (!column1) {
+            System.out.println();
+        }
+
+        System.out.println("\nA - Add\nQ - Return to main menu\n");
+    }
+
+
+    public void quit() {
         quit = true;
     }
 
