@@ -1,4 +1,4 @@
-package Misc;
+package SchoolRecords.Misc;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

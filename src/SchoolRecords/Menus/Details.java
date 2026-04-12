@@ -1,22 +1,24 @@
+package SchoolRecords.Menus;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class Details implements Menu {
+public class Details implements SchoolRecords.Menus.Menu {
     static final HashMap<String, Runnable> menuOptions = new HashMap<>();
     ArrayList<ArrayList<String>> records;
     ArrayList<String> columns;
     ArrayList<String> record;
 
 
-    Details(ArrayList<ArrayList<String>> records, ArrayList<String> columns, ArrayList<String> record, MenuControl menuControl) {
+    Details(ArrayList<ArrayList<String>> records, ArrayList<String> columns, ArrayList<String> record, SchoolRecords.Menus.MenuControl menuControl) {
         this.records = records;
         this.columns = columns;
         this.record = record;
 
-        menuOptions.put("U", () -> menuControl.setMenu(new Update(records, columns, record, menuControl)));
-        menuOptions.put("D", Delete::new);
-        menuOptions.put("Q", () -> menuControl.setMenu(new View(records, menuControl)));
+        menuOptions.put("U", () -> menuControl.setMenu(new SchoolRecords.Menus.Update(records, columns, record, menuControl)));
+        menuOptions.put("D", SchoolRecords.Menus.Delete::new);
+        menuOptions.put("Q", () -> menuControl.setMenu(new SchoolRecords.Menus.View(records, menuControl)));
     }
 
 

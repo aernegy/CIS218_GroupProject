@@ -1,3 +1,5 @@
+package SchoolRecords.Menus;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -27,7 +29,7 @@ public class Update implements Menu {
         System.out.println("Select field to update\n");
 
         for (int i = 0; i < this.columns.size(); i++) {
-            System.out.println(Integer.toString(i + 1) + " - " + this.columns.get(i) + ": " + record.get(i));
+            System.out.println((i + 1) + " - " + this.columns.get(i) + ": " + record.get(i));
         }
 
         System.out.println("\nQ - Return");

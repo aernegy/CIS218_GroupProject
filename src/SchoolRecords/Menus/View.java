@@ -1,3 +1,5 @@
+package SchoolRecords.Menus;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -14,10 +16,10 @@ public class View implements Menu {
         for (int i = 1; i < records.size(); i++) {
             int index = i;
             menuOptions.put(Integer.toString(i),
-                    () -> menuControl.setMenu(new Details(records, records.getFirst(), records.get(index), menuControl)));
+                    () -> menuControl.setMenu(new SchoolRecords.Menus.Details(records, records.getFirst(), records.get(index), menuControl)));
         }
-        menuOptions.put("A", Add::new);
-        menuOptions.put("Q", () -> menuControl.setMenu(new MainMenu(menuControl)));
+        menuOptions.put("A", SchoolRecords.Menus.Add::new);
+        menuOptions.put("Q", () -> menuControl.setMenu(new SchoolRecords.Menus.MainMenu(menuControl)));
     }
 
 
