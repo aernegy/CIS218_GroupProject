@@ -11,10 +11,9 @@ public class View implements Menu {
         String errorMessage = Main.loadMenuText("menuError.txt").getFirst();
 
         HashMap<String, Runnable> menuOptions = new HashMap<>();
-
-        for (int i = 0; i < records.size(); i++) {
+        for (int i = 0; i < records.size();) {
             int index = i;
-            menuOptions.put(Integer.toString(i), () -> new Student_Details(records.get(index), userInput));
+            menuOptions.put(Integer.toString(++i), () -> new Student_Details(records.get(index), userInput));
         }
         menuOptions.put("A", Add::new);
         menuOptions.put("Q", this::quit);
