@@ -35,7 +35,7 @@ public class MenuLogic implements MenuControl {
                     staff.save("staffRecords.txt");
                     break;
                 }
-                System.out.println(System.getProperty("user.dir"));
+
                 menu.print();
 
                 if (error) {
@@ -58,6 +58,7 @@ public class MenuLogic implements MenuControl {
     }
 
 
+    @Override
     public void setMenu(Menu newMenu) {
         this.menu = newMenu;
     }
