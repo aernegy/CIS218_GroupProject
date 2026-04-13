@@ -1,17 +1,19 @@
 package SchoolRecords.Menus;
 
+import SchoolRecords.Records.Records;
+import SchoolRecords.Records.Record;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 
 public class Details implements SchoolRecords.Menus.Menu {
     static final HashMap<String, Runnable> menuOptions = new HashMap<>();
-    ArrayList<ArrayList<String>> records;
+    Records records;
     ArrayList<String> columns;
-    ArrayList<String> record;
+    Record record;
 
 
-    Details(ArrayList<ArrayList<String>> records, ArrayList<String> columns, ArrayList<String> record, SchoolRecords.Menus.MenuControl menuControl) {
+    Details(Records records, ArrayList<String> columns, Record record, SchoolRecords.Menus.MenuControl menuControl) {
         this.records = records;
         this.columns = columns;
         this.record = record;

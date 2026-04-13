@@ -27,11 +27,8 @@ public class MainMenu implements Menu {
         for (String line : this.mainMenu) {
             String row = optionNo + " - " + line;
 
-            if (column1) {
-                System.out.printf("%-50s", row);
-
-            } else {
-                System.out.printf("%-50s", row);
+            System.out.printf("%-50s", row);
+            if (!column1) {
                 System.out.println();
             }
 

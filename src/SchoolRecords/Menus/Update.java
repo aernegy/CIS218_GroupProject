@@ -1,5 +1,7 @@
 package SchoolRecords.Menus;
 
+import SchoolRecords.Records.Records;
+import SchoolRecords.Records.Record;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -7,10 +9,10 @@ import java.util.List;
 public class Update implements Menu {
     static final HashMap<String, Runnable> menuOptions = new HashMap<>();
     ArrayList<String> columns;
-    ArrayList<String> record;
+    Record record;
 
 
-    Update(ArrayList<ArrayList<String>> records, ArrayList<String> columns, ArrayList<String> record, MenuControl menuControl) {
+    Update(Records records, ArrayList<String> columns, Record record, MenuControl menuControl) {
         this.columns = columns;
         this.record = record;
 
@@ -52,14 +54,14 @@ public class Update implements Menu {
 class UpdateDialog implements Menu {
     static final HashMap<String, Runnable> menuOptions = new HashMap<>();
     ArrayList<String> columns;
-    ArrayList<String> record;
+    Record record;
     int index;
 
 
     UpdateDialog(
-            ArrayList<ArrayList<String>> records,
+            Records records,
             ArrayList<String> columns,
-            ArrayList<String> record,
+            Record record,
             int index,
             MenuControl menuControl
     ) {

@@ -1,26 +1,24 @@
 package SchoolRecords;
 
 import java.io.*;
-import java.util.ArrayList;
 import SchoolRecords.Menus.MainMenu;
 import SchoolRecords.Menus.Menu;
 import SchoolRecords.Menus.MenuControl;
-
-import static SchoolRecords.Misc.Utility.saveRecords;
+import SchoolRecords.Records.Records;
 
 
 public class MenuLogic implements MenuControl {
     Menu menu;
     static boolean quit = false;
-    public static ArrayList<ArrayList<String>> students;
-    public static ArrayList<ArrayList<String>> faculty;
-    public static ArrayList<ArrayList<String>> staff;
+    public static Records students;
+    public static Records faculty;
+    public static Records staff;
 
 
     public MenuLogic(
-            ArrayList<ArrayList<String>> students,
-            ArrayList<ArrayList<String>> faculty,
-            ArrayList<ArrayList<String>> staff,
+            Records students,
+            Records faculty,
+            Records staff,
             String errorMessage
     ) {
         MenuLogic.students = students;
@@ -32,9 +30,9 @@ public class MenuLogic implements MenuControl {
         try (BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in))) {
             while (true) {
                 if (quit) {
-                    saveRecords(students, "studentRecords.txt");
-                    saveRecords(faculty, "facultyRecords.txt");
-                    saveRecords(staff, "staffRecords.txt");
+                    students.save("studentRecords.txt");
+                    faculty.save("facultyRecords.txt");
+                    staff.save("staffRecords.txt");
                     break;
                 }
                 System.out.println(System.getProperty("user.dir"));
