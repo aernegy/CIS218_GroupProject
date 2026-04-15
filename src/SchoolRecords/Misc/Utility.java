@@ -39,6 +39,8 @@ public class Utility {
                 result.add(new ArrayList<>(Arrays.asList(line.split("\\s*,\\s*"))));
             }
 
+            fileReader.close();
+
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }
@@ -48,11 +50,16 @@ public class Utility {
 
 
     public static void saveRecords(ArrayList<ArrayList<String>> records, String fileName) {
-        try (BufferedWriter fileWriter = new BufferedWriter(new FileWriter(fileName))) {
+        try {
+            BufferedWriter fileWriter = new BufferedWriter(new FileWriter(fileName));
+
             for (ArrayList<String> record : records) {
                 fileWriter.write(String.join(",", record));
                 fileWriter.newLine();
             }
+
+            fileWriter.close();
+
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }

@@ -13,6 +13,7 @@ public class MainMenu implements Menu {
         menuOptions.put("1", () -> menuControl.setMenu(new View(MenuLogic.students, menuControl)));
         menuOptions.put("2", () -> menuControl.setMenu(new View(MenuLogic.faculty, menuControl)));
         menuOptions.put("3", () -> menuControl.setMenu(new View(MenuLogic.staff, menuControl)));
+        menuOptions.put("4", () -> menuControl.setMenu(new Search(MenuLogic.students, MenuLogic.faculty, MenuLogic.staff, menuControl)));
         menuOptions.put("Q", MenuLogic::quit);
     }
 

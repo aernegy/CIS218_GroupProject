@@ -7,16 +7,19 @@ import static SchoolRecords.Misc.Utility.saveRecords;
 
 
 public class Records {
-    private final ArrayList<String> columns;
+    ArrayList<String> columns = new ArrayList<>();
     private LinkedHashMap<String, Record> records = new LinkedHashMap<>();
 
 
     public Records(String fileName) {
         ArrayList<ArrayList<String>> load = loadRecords(fileName);
-        columns = load.removeFirst();
+        this.columns = load.removeFirst();
         for (ArrayList<String> recordValues : load) {
             records.put(recordValues.getFirst(), new Record(recordValues, columns));
         }
+    }
+    public Records() {
+
     }
 
 
@@ -27,17 +30,18 @@ public class Records {
         return records.get(new ArrayList<>(records.keySet()).get(index));
     }
 
-    public ArrayList<String> getColumns() {
-        return columns;
+
+    public ArrayList<Record> getAll() {
+        return new ArrayList<>(records.values());
     }
 
 
-    void add(Record record) {
+    public void add(Record record) {
         records.put(record.get("ID"), record);
     }
 
 
-    void delete(int id) {
+    public void delete(int id) {
         records.remove(Integer.toString(id));
     }
 
@@ -50,6 +54,7 @@ public class Records {
         save.addFirst(columns);
         saveRecords(save, fileName);
     }
+
 
     public int size() {
         return records.size();

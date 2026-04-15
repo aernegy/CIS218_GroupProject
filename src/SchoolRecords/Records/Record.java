@@ -2,19 +2,19 @@ package SchoolRecords.Records;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
+
 
 public class Record {
+    private final ArrayList<String> columns;
     private LinkedHashMap<String, String> record = new LinkedHashMap<>();
 
+
     Record(ArrayList<String> recordValues, ArrayList<String> columns) {
+        this.columns = columns;
         for (int i = 0; i < columns.size(); i++) {
-            record.put(columns.get(i), recordValues.get(i));
+            record.put(this.columns.get(i), recordValues.get(i));
         }
-    }
-
-
-    ArrayList<String> getAll() {
-        return new ArrayList<>(record.values());
     }
 
 
@@ -23,6 +23,21 @@ public class Record {
     }
     public String get(int index) {
         return record.get(new ArrayList<>(record.keySet()).get(index));
+    }
+
+
+    ArrayList<String> getAll() {
+        return new ArrayList<>(record.values());
+    }
+
+
+    public ArrayList<String> getSearch() {
+        return new ArrayList<>(List.of(get(0), get(2), get(3)));
+    }
+
+
+    public ArrayList<String> getColumns() {
+        return columns;
     }
 
 

@@ -12,5 +12,5 @@ void main() {
     new MenuLogic(students, faculty, staff, errorMessage);
 
     // Upon program quit
-    IO.println("Program shutdown \nHasta la vista!");
+    System.out.println("Program shutdown \nHasta la vista!");
 }

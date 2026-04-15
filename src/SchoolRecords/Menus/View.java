@@ -14,9 +14,10 @@ public class View implements Menu {
         for (int i = 0; i < records.size();) {
             int index = i;
             menuOptions.put(Integer.toString(++i),
-                    () -> menuControl.setMenu(new SchoolRecords.Menus.Details(records, records.getColumns(), records.getIndex(index), menuControl)));
+                    () -> menuControl.setMenu(new SchoolRecords.Menus.Details(records, records.getIndex(index).getColumns(), records.getIndex(index), menuControl)));
         }
         menuOptions.put("A", SchoolRecords.Menus.Add::new);
+        menuOptions.put("S", () -> menuControl.setMenu(new SchoolRecords.Menus.Search(records, menuControl)));
         menuOptions.put("Q", () -> menuControl.setMenu(new SchoolRecords.Menus.MainMenu(menuControl)));
     }
 
@@ -27,13 +28,11 @@ public class View implements Menu {
 
         System.out.println("\n--------------------");
 
-        for (int i = 1; i < records.size(); i++) {
-            String row = i + " - " + records.getIndex(i - 1).get("FULLNAME");
+        for (int i = 0; i < records.size(); i++) {
+            String row = (i + 1) + " - " + records.getIndex(i).get("FULLNAME");
 
-            if (column1) {
-                System.out.printf("%-50s", row);
-            } else {
-                System.out.printf("%-50s", row);
+            System.out.printf("%-50s", row);
+            if (!column1) {
                 System.out.println();
             }
 
@@ -44,7 +43,7 @@ public class View implements Menu {
             System.out.println();
         }
 
-        System.out.println("\nA - Add\nQ - Return to main menu\n");
+        System.out.println("\nA - Add\nS - Search\nQ - Return to main menu\n");
     }
 
 
