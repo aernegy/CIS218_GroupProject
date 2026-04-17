@@ -28,6 +28,10 @@ public class View implements Menu {
 
         System.out.println("\n--------------------");
 
+        if (records.size() == 0) {
+            System.out.println("\nNo records found");
+        }
+
         for (int i = 0; i < records.size(); i++) {
             String row = (i + 1) + " - " + records.getIndex(i).get("FULLNAME");
 

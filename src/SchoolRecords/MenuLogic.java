@@ -15,12 +15,7 @@ public class MenuLogic implements MenuControl {
     public static Records staff;
 
 
-    public MenuLogic(
-            Records students,
-            Records faculty,
-            Records staff,
-            String errorMessage
-    ) {
+    public MenuLogic(Records students, Records faculty, Records staff, String errorMessage) {
         MenuLogic.students = students;
         MenuLogic.faculty = faculty;
         MenuLogic.staff = staff;

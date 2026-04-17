@@ -1,12 +1,9 @@
 package SchoolRecords.Misc;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 
 public class Utility {
@@ -20,7 +17,8 @@ public class Utility {
             while ((line = fileReader.readLine()) != null) {
                 result.add(line);
             }
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }
 
@@ -40,7 +38,13 @@ public class Utility {
             }
 
             fileReader.close();
-
+        } catch (FileNotFoundException e) {
+                System.out.println(e.getMessage());
+                switch (fileName) {
+                    case "studentRecords.txt" -> result.add(new ArrayList<>(List.of("ID,TYPE,FULLNAME,MAJOR,GPA")));
+                    case "facultyRecords.txt" -> result.add(new ArrayList<>(List.of("ID,TYPE,FULLNAME,COURSES,SALARY")));
+                    case "staffRecords.txt" -> result.add(new ArrayList<>(List.of("ID,TYPE,FULLNAME,DEPARTMENT,SALARY")));
+                }
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }

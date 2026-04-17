@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import static SchoolRecords.Misc.Utility.loadMenuText;
 
+
 public class MainMenu implements Menu {
     ArrayList<String> mainMenu = loadMenuText("mainMenu.txt");
     static final HashMap<String, Runnable> menuOptions = new HashMap<>();
