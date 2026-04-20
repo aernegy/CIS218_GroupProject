@@ -34,7 +34,7 @@ public class MenuLogic implements MenuControl {
                 menu.print();
 
                 if (error) {
-                    System.out.println(errorMessage);
+                    System.out.printf("%S", "\n" + errorMessage + "\n");
                     error = false;
                 }
 

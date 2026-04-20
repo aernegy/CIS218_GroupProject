@@ -4,4 +4,3 @@ Staff
 Search
 Add
 Delete
-Quit

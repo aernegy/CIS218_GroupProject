@@ -26,13 +26,14 @@ public class Details implements SchoolRecords.Menus.Menu {
 
     @Override
     public void print() {
-        System.out.println("\n--------------------");
+        System.out.println("\n==================================================");
 
         for (int i = 0; i < this.columns.size(); i++) {
-            System.out.println(this.columns.get(i) + ": " + record.get(i));
+            System.out.printf("%S",this.columns.get(i) + ": " + record.get(i) + "\n");
         }
 
-        System.out.println("\nU - Update details\nD - Delete record\nQ - Return");
+        System.out.println("\n[U] UPDATE DETAILS \n[D] DELETE RECORD\n[Q] RETURN");
+        System.out.println("==================================================");
     }
 
 

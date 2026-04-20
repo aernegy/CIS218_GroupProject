@@ -25,12 +25,14 @@ public class MainMenu implements Menu {
         int optionNo = 1;
         boolean column1 = true;
 
-        System.out.println("\n--------------------\nSCHOOL RECORDS\n");
+        System.out.println("\n==================================================");
+        System.out.printf("%35S", ">> SCHOOL RECORDS <<");
+        System.out.println("\n==================================================");
 
         for (String line : this.mainMenu) {
-            String row = optionNo + " - " + line;
+            String row = "[" + optionNo + "] " + line;
 
-            System.out.printf("%-50s", row);
+            System.out.printf("%-30S", row);
             if (!column1) {
                 System.out.println();
             }
@@ -44,7 +46,8 @@ public class MainMenu implements Menu {
             System.out.println();
         }
 
-        System.out.println("\nQ - Return to main menu\n");
+        System.out.println("\n[Q] LOG OUT\n");
+        System.out.println("==================================================");
     }
 
 

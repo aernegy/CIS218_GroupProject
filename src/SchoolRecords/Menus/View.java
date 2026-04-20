@@ -32,16 +32,16 @@ public class View implements Menu {
     public void print() {
         boolean column1 = true;
 
-        System.out.println("\n--------------------");
+        System.out.println("\n==================================================");
 
         if (records.size() == 0) {
             System.out.println("\nNo records found");
         }
 
         for (int i = 0; i < records.size(); i++) {
-            String row = (i + 1) + " - " + records.getIndex(i).get("FULLNAME");
+            String row = "[" + (i + 1) + "] " + records.getIndex(i).get("FULLNAME");
 
-            System.out.printf("%-50s", row);
+            System.out.printf("%-30S", row);
             if (!column1) {
                 System.out.println();
             }
@@ -53,7 +53,8 @@ public class View implements Menu {
             System.out.println();
         }
 
-        System.out.println("\nA - Add\nS - Search\nQ - Return to main menu\n");
+        System.out.println("\n[A] ADD\n[S] SEARCH\n[Q] RETURN TO MAIN MENU\n");
+        System.out.println("==================================================");
     }
 
 

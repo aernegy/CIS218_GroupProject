@@ -12,5 +12,5 @@ public static void main(String[] args) {
     new MenuLogic(students, faculty, staff, errorMessage);
 
     // Upon program quit
-    System.out.println("Program shutdown \nHasta la vista!");
+    System.out.printf("%S", "Program shutdown \nHasta la vista!");
 }

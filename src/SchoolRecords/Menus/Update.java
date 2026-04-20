@@ -28,14 +28,15 @@ public class Update implements Menu {
 
     @Override
     public void print() {
-        System.out.println("\n--------------------");
-        System.out.println("Select field to update\n");
+        System.out.println("\n==================================================");
+        System.out.println("SELECT FIELD TO UPDATE\n");
 
         for (int i = 0; i < this.columns.size(); i++) {
-            System.out.println((i + 1) + " - " + this.columns.get(i) + ": " + record.get(i));
+            System.out.printf("%S", "[" + (i + 1) + "] " + this.columns.get(i) + ": " + record.get(i) + "\n");
         }
 
-        System.out.println("\nQ - Return");
+        System.out.println("\n[Q] RETURN");
+        System.out.println("==================================================");
     }
 
 
@@ -70,9 +71,9 @@ class UpdateDialog implements Menu {
 
     @Override
     public void print() {
-        System.out.println("\n--------------------");
-        System.out.println("Initial value of " + columns.get(this.index) + ": " + record.get(this.index));
-        System.out.print("Enter new value: ");
+        System.out.println("==================================================");
+        System.out.printf("%S", "Initial value of " + columns.get(this.index) + ": " + record.get(this.index) + "\n");
+        System.out.printf("%S", "Enter new value: ");
     }
 
 
