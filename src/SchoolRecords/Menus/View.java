@@ -13,12 +13,18 @@ public class View implements Menu {
 
         for (int i = 0; i < records.size();) {
             int index = i;
-            menuOptions.put(Integer.toString(++i),
-                    () -> menuControl.setMenu(new SchoolRecords.Menus.Details(records, records.getIndex(index).getColumns(), records.getIndex(index), menuControl)));
+            menuOptions.put(
+                    Integer.toString(++i),
+                    () -> menuControl.setMenu(
+                            new Details(
+                                    records, records.getIndex(index).getColumns(), records.getIndex(index), menuControl
+                            )
+                    )
+            );
         }
-        menuOptions.put("A", SchoolRecords.Menus.Add::new);
-        menuOptions.put("S", () -> menuControl.setMenu(new SchoolRecords.Menus.Search(records, menuControl)));
-        menuOptions.put("Q", () -> menuControl.setMenu(new SchoolRecords.Menus.MainMenu(menuControl)));
+        menuOptions.put("A", Add::new);
+        menuOptions.put("S", () -> menuControl.setMenu(new Search(records, menuControl)));
+        menuOptions.put("Q", () -> menuControl.setMenu(new MainMenu(menuControl)));
     }
 
 

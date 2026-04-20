@@ -59,13 +59,7 @@ class UpdateDialog implements Menu {
     int index;
 
 
-    UpdateDialog(
-            Records records,
-            ArrayList<String> columns,
-            Record record,
-            int index,
-            MenuControl menuControl
-    ) {
+    UpdateDialog(Records records, ArrayList<String> columns, Record record, int index, MenuControl menuControl) {
         this.columns = columns;
         this.record = record;
         this.index = index;

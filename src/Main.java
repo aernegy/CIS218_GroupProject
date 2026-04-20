@@ -3,11 +3,11 @@ import SchoolRecords.Records.Records;
 
 import static SchoolRecords.Misc.Utility.loadMenuText;
 
-void main() {
+public static void main(String[] args) {
     Records students = new Records("studentRecords.txt");
     Records faculty = new Records("facultyRecords.txt");
     Records staff = new Records("staffRecords.txt");
-    String errorMessage = loadMenuText("menuError.txt").getFirst();
+    String errorMessage = loadMenuText("menuError.txt").get(0);
 
     new MenuLogic(students, faculty, staff, errorMessage);
 

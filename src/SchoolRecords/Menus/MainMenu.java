@@ -1,6 +1,7 @@
 package SchoolRecords.Menus;
 
 import SchoolRecords.MenuLogic;
+import SchoolRecords.MenuLogic.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import static SchoolRecords.Misc.Utility.loadMenuText;
@@ -11,10 +12,10 @@ public class MainMenu implements Menu {
     static final HashMap<String, Runnable> menuOptions = new HashMap<>();
 
     public MainMenu(MenuControl menuControl) {
-        menuOptions.put("1", () -> menuControl.setMenu(new View(MenuLogic.students, menuControl)));
-        menuOptions.put("2", () -> menuControl.setMenu(new View(MenuLogic.faculty, menuControl)));
-        menuOptions.put("3", () -> menuControl.setMenu(new View(MenuLogic.staff, menuControl)));
-        menuOptions.put("4", () -> menuControl.setMenu(new Search(MenuLogic.students, MenuLogic.faculty, MenuLogic.staff, menuControl)));
+        menuOptions.put("1", () -> menuControl.setMenu(new View(MenuLogic.getStudents(), menuControl)));
+        menuOptions.put("2", () -> menuControl.setMenu(new View(MenuLogic.getFaculty(), menuControl)));
+        menuOptions.put("3", () -> menuControl.setMenu(new View(MenuLogic.getStaff(), menuControl)));
+        menuOptions.put("4", () -> menuControl.setMenu(new Search(MenuLogic.getStudents(), MenuLogic.getFaculty(), MenuLogic.getStaff(), menuControl)));
         menuOptions.put("Q", MenuLogic::quit);
     }
 
@@ -43,7 +44,7 @@ public class MainMenu implements Menu {
             System.out.println();
         }
 
-        System.out.println("\nA - Add\nQ - Return to main menu\n");
+        System.out.println("\nQ - Return to main menu\n");
     }
 
 

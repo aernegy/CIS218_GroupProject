@@ -15,7 +15,7 @@ public class Records {
         ArrayList<ArrayList<String>> load = loadRecords(fileName);
         this.columns = load.removeFirst();
         for (ArrayList<String> recordValues : load) {
-            records.put(recordValues.getFirst(), new Record(recordValues, columns));
+            records.put(recordValues.get(0), new Record(recordValues, columns));
         }
     }
     public Records() {

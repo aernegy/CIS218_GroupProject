@@ -15,8 +15,6 @@ public class Search implements Menu {
         this.searchRecords = records.getAll();
         this.menuControl = menuControl;
     }
-
-
     Search(Records students, Records faculty, Records staff, MenuControl menuControl) {
         this.searchRecords.addAll(students.getAll());
         this.searchRecords.addAll(faculty.getAll());

@@ -18,9 +18,9 @@ public class Details implements SchoolRecords.Menus.Menu {
         this.columns = columns;
         this.record = record;
 
-        menuOptions.put("U", () -> menuControl.setMenu(new SchoolRecords.Menus.Update(records, columns, record, menuControl)));
-        menuOptions.put("D", SchoolRecords.Menus.Delete::new);
-        menuOptions.put("Q", () -> menuControl.setMenu(new SchoolRecords.Menus.View(records, menuControl)));
+        menuOptions.put("U", () -> menuControl.setMenu(new Update(records, columns, record, menuControl)));
+        menuOptions.put("D", Delete::new);
+        menuOptions.put("Q", () -> menuControl.setMenu(new View(records, menuControl)));
     }
 
 

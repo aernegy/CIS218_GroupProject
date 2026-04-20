@@ -8,11 +8,11 @@ import SchoolRecords.Records.Records;
 
 
 public class MenuLogic implements MenuControl {
-    Menu menu;
-    static boolean quit = false;
-    public static Records students;
-    public static Records faculty;
-    public static Records staff;
+    private Menu menu;
+    private static boolean quit = false;
+    private static Records students;
+    private static Records faculty;
+    private static Records staff;
 
 
     public MenuLogic(Records students, Records faculty, Records staff, String errorMessage) {
@@ -56,6 +56,17 @@ public class MenuLogic implements MenuControl {
     @Override
     public void setMenu(Menu newMenu) {
         this.menu = newMenu;
+    }
+
+
+    static public Records getStudents() {
+        return students;
+    }
+    static public Records getFaculty() {
+        return faculty;
+    }
+    static public Records getStaff() {
+        return staff;
     }
 
 
