@@ -1,20 +1,21 @@
-ID,TYPE,FULLNAME,MAJOR,GPA
-0029527,STUDENT,Jayden Chan Zhung Zhuo,Math,4.00
-0019425,STUDENT,Isaac Ulrich,Computer Science,4.00
-0129456,STUDENT,Liam Harkins,Computer Science,4.00
-0038471,STUDENT,Sophia Patel,Biology,3.67
-0098742,STUDENT,Emma Rodriguez,Mechanical Engineering,4.00
-0045618,STUDENT,Noah Kim,Business Administration,3.45
-0087459,STUDENT,Olivia Chen,Psychology,3.78
-0023147,STUDENT,Lucas Thompson,Computer Science,3.91
-0078923,STUDENT,Ava Martinez,Electrical Engineering,3.55
-0019876,STUDENT,Mason Lee,Mathematics,4.00
-0056784,STUDENT,Isabella Wong,Data Science,3.88
-0034567,STUDENT,Ethan Garcia,Finance,3.72
-0091234,STUDENT,Charlotte Brown,Biology,3.95
-0067891,STUDENT,Amir Khan,Computer Engineering,3.80
-0045678,STUDENT,Mia Anderson,English Literature,3.65
-0089012,STUDENT,Alexander Rossi,Physics,3.98
-0023456,STUDENT,Zoe Nakamura,Neuroscience,4.00
-0076543,STUDENT,Benjamin Dubois,International Relations,3.70
-0054321,STUDENT,Harper Singh,Chemical Engineering,3.82
+STUDENT
+ID,FULLNAME,MAJOR,GPA
+0029527,Jayden Chan Zhung Zhuo,Math,4.00
+0019425,Isaac Ulrich,Computer Science,4.00
+0129456,Liam Harkins,Computer Science,4.00
+0038471,Sophia Patel,Biology,3.67
+0098742,Emma Rodriguez,Mechanical Engineering,4.00
+0045618,Noah Kim,Business Administration,3.45
+0087459,Olivia Chen,Psychology,3.78
+0023147,Lucas Thompson,Computer Science,3.91
+0078923,Ava Martinez,Electrical Engineering,3.55
+0019876,Mason Lee,Mathematics,4.00
+0056784,Isabella Wong,Data Science,3.88
+0034567,Ethan Garcia,Finance,3.72
+0091234,Charlotte Brown,Biology,3.95
+0067891,Amir Khan,Computer Engineering,3.80
+0045678,Mia Anderson,English Literature,3.65
+0089012,Alexander Rossi,Physics,3.98
+0023456,Zoe Nakamura,Neuroscience,4.00
+0076543,Benjamin Dubois,International Relations,3.70
+0054321,Harper Singh,Chemical Engineering,3.82
