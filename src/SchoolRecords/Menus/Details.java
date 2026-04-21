@@ -13,13 +13,13 @@ public class Details implements SchoolRecords.Menus.Menu {
     Record record;
 
 
-    Details(Records records, ArrayList<String> columns, Record record, SchoolRecords.Menus.MenuControl menuControl) {
+    Details(Records records, ArrayList<String> columns, Record record, MenuControl menuControl) {
         this.records = records;
         this.columns = columns;
         this.record = record;
 
         menuOptions.put("U", () -> menuControl.setMenu(new Update(records, columns, record, menuControl)));
-        menuOptions.put("D", Delete::new);
+        menuOptions.put("D", () -> menuControl.setMenu(new Delete(records, columns, record, menuControl)));
         menuOptions.put("Q", () -> menuControl.setMenu(new View(records, menuControl)));
     }
 

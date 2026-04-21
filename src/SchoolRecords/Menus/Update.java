@@ -2,6 +2,7 @@ package SchoolRecords.Menus;
 
 import SchoolRecords.Records.Records;
 import SchoolRecords.Records.Record;
+import static SchoolRecords.Misc.Utility.columnCheck;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -79,15 +80,7 @@ class UpdateDialog implements Menu {
 
     @Override
     public boolean checkUserInput(String input) {
-        ArrayList<String> intCheck = new ArrayList<>(List.of("ID", "SALARY"));
-
-        if (intCheck.contains(columns.get(index))) {
-            return input.matches("-?\\d+");
-        } else if (columns.get(index).equals("GPA")) {
-            return (0 <= Double.parseDouble(input) && Double.parseDouble(input) <= 4.0);
-        } else {
-            return true;
-        }
+        return columnCheck(input, columns, index);
     }
 
 

@@ -9,6 +9,7 @@ import static SchoolRecords.Misc.Utility.saveRecords;
 public class Records {
     ArrayList<String> columns = new ArrayList<>();
     private LinkedHashMap<String, Record> records = new LinkedHashMap<>();
+    private String fileName;
 
 
     public Records(String fileName) {
@@ -17,6 +18,7 @@ public class Records {
         for (ArrayList<String> recordValues : load) {
             records.put(recordValues.get(0), new Record(recordValues, columns));
         }
+        this.fileName = fileName;
     }
     public Records() {
 
@@ -36,17 +38,32 @@ public class Records {
     }
 
 
+    public ArrayList<String> getColumns() {
+        return columns;
+    }
+
+
     public void add(Record record) {
         records.put(record.get("ID"), record);
     }
 
 
-    public void delete(int id) {
-        records.remove(Integer.toString(id));
+    public void delete(String id) {
+        records.remove(id);
     }
 
 
     public void save(String fileName) {
+        ArrayList<ArrayList<String>> save = new ArrayList<>();
+        for (Record record : records.values()) {
+            save.add(record.getAll());
+        }
+        save.addFirst(columns);
+        saveRecords(save, fileName);
+
+        this.fileName = fileName;
+    }
+    public void save() {
         ArrayList<ArrayList<String>> save = new ArrayList<>();
         for (Record record : records.values()) {
             save.add(record.getAll());

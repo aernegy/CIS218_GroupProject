@@ -10,7 +10,7 @@ public class Record {
     private LinkedHashMap<String, String> record = new LinkedHashMap<>();
 
 
-    Record(ArrayList<String> recordValues, ArrayList<String> columns) {
+    public Record(ArrayList<String> recordValues, ArrayList<String> columns) {
         this.columns = columns;
         for (int i = 0; i < columns.size(); i++) {
             record.put(this.columns.get(i), recordValues.get(i));

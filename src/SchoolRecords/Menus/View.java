@@ -22,7 +22,7 @@ public class View implements Menu {
                     )
             );
         }
-        menuOptions.put("A", Add::new);
+        menuOptions.put("A", () -> menuControl.setMenu(new Add(records, menuControl)));
         menuOptions.put("S", () -> menuControl.setMenu(new Search(records, menuControl)));
         menuOptions.put("Q", () -> menuControl.setMenu(new MainMenu(menuControl)));
     }
