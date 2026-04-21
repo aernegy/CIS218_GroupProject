@@ -6,11 +6,13 @@ import java.util.List;
 
 
 public class Record {
+    private final String recordsName;
     private final ArrayList<String> columns;
     private LinkedHashMap<String, String> record = new LinkedHashMap<>();
 
 
-    public Record(ArrayList<String> recordValues, ArrayList<String> columns) {
+    public Record(String recordsName, ArrayList<String> recordValues, ArrayList<String> columns) {
+        this.recordsName = recordsName;
         this.columns = columns;
         for (int i = 0; i < columns.size(); i++) {
             record.put(this.columns.get(i), recordValues.get(i));
@@ -32,7 +34,7 @@ public class Record {
 
 
     public ArrayList<String> getSearch() {
-        return new ArrayList<>(List.of(get(0), get(2), get(3)));
+        return new ArrayList<>(List.of(recordsName, get(0), get(1), get(2)));
     }
 
 

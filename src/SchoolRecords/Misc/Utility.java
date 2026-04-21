@@ -7,9 +7,6 @@ import java.util.List;
 
 
 public class Utility {
-    public static ArrayList<String> types = new ArrayList<>(List.of("STUDENT", "FACULTY", "STAFF"));
-
-
     public static ArrayList<String> loadMenuText(String fileName) {
         ArrayList<String> result = new ArrayList<>();
         String line;
@@ -44,9 +41,9 @@ public class Utility {
         } catch (FileNotFoundException e) {
                 System.out.println(e.getMessage());
                 switch (fileName) {
-                    case "studentRecords.txt" -> result.add(new ArrayList<>(List.of("ID,TYPE,FULLNAME,MAJOR,GPA")));
-                    case "facultyRecords.txt" -> result.add(new ArrayList<>(List.of("ID,TYPE,FULLNAME,COURSES,SALARY")));
-                    case "staffRecords.txt" -> result.add(new ArrayList<>(List.of("ID,TYPE,FULLNAME,DEPARTMENT,SALARY")));
+                    case "studentRecords.txt" -> result.add(new ArrayList<>(List.of("ID,FULLNAME,MAJOR,GPA")));
+                    case "facultyRecords.txt" -> result.add(new ArrayList<>(List.of("ID,FULLNAME,COURSES,SALARY")));
+                    case "staffRecords.txt" -> result.add(new ArrayList<>(List.of("ID,FULLNAME,DEPARTMENT,SALARY")));
                 }
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
@@ -80,8 +77,6 @@ public class Utility {
             return input.matches("-?\\d+");
         } else if (columns.get(index).equals("GPA")) {
             return (0 <= Double.parseDouble(input) && Double.parseDouble(input) <= 4.0);
-        } else if (columns.get(index).equals("TYPE")) {
-            return types.contains(input);
         } else {
             return true;
         }

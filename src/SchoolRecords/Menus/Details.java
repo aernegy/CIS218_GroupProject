@@ -27,6 +27,7 @@ public class Details implements SchoolRecords.Menus.Menu {
     @Override
     public void print() {
         System.out.println("\n==================================================");
+        System.out.printf("%S", "TYPE: " + records.getRecordsName() + "\n");
 
         for (int i = 0; i < this.columns.size(); i++) {
             System.out.printf("%S",this.columns.get(i) + ": " + record.get(i) + "\n");

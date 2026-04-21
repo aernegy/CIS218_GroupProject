@@ -2,7 +2,6 @@ package SchoolRecords.Menus;
 
 import SchoolRecords.Records.Records;
 import SchoolRecords.Records.Record;
-import SchoolRecords.Misc.Utility;
 import static SchoolRecords.Misc.Utility.columnCheck;
 import static SchoolRecords.Misc.Utility.sleep;
 import java.util.ArrayList;
@@ -23,7 +22,7 @@ public class Add implements Menu {
         this.records = new ArrayList<>(List.of(students, faculty, staff));
         this.menuControl = menuControl;
 
-        for (int i = 0; i < Utility.types.size();) {
+        for (int i = 0; i < records.size();) {
             int index = i;
             menuOptions.put(Integer.toString(++i), () -> menuControl.setMenu(new AddDialog(records.get(index), menuControl)));
         }
@@ -48,8 +47,8 @@ public class Add implements Menu {
         System.out.printf("%36S","SELECT TYPE OF RECORD");
         System.out.println("\n==================================================");
 
-        for (int i = 0; i < Utility.types.size(); i++) {
-            System.out.printf("[" + (i + 1) + "] " + Utility.types.get(i) + "\n");
+        for (int i = 0; i < records.size(); i++) {
+            System.out.printf("[" + (i + 1) + "] " + records.get(i).getRecordsName() + "\n");
         }
 
         System.out.println("\n==================================================");
@@ -59,7 +58,6 @@ public class Add implements Menu {
 
 class AddDialog implements Menu {
     Records records;
-    Record addRecord;
     MenuControl menuControl;
     int index = 0;
     ArrayList<String> recordValues = new ArrayList<>();
@@ -85,7 +83,7 @@ class AddDialog implements Menu {
         index++;
 
         if (index >= columns.size()) {
-            records.add(new Record(recordValues, columns));
+            records.add(new Record(records.getRecordsName(), recordValues, columns));
 
             System.out.println("\n==================================================");
             System.out.printf("%34S","ADDED SUCCESSFULLY");
@@ -95,8 +93,6 @@ class AddDialog implements Menu {
             sleep(2000);
 
             menuControl.setMenu(new View(records, menuControl));
-        } else if (columns.get(index).equalsIgnoreCase("TYPE")) {
-            recordValues.add(records.get("TYPE"));
         }
     }
 
@@ -105,6 +101,7 @@ class AddDialog implements Menu {
     public void print() {
         System.out.println("\n==================================================");
 
+        System.out.printf("%S", "TYPE: " + records.getRecordsName() + "\n");
         for (int i = 0; i < index; i++) {
             System.out.printf("%S",columns.get(i) + ": " + recordValues.get(i) + "\n");
         }

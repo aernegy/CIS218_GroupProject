@@ -33,6 +33,8 @@ public class View implements Menu {
         boolean column1 = true;
 
         System.out.println("\n==================================================");
+        System.out.printf("%S", records.getRecordsName());
+        System.out.println("\n==================================================");
 
         if (records.size() == 0) {
             System.out.println("\nNo records found");
