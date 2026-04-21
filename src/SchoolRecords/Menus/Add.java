@@ -15,9 +15,6 @@ public class Add implements Menu {
     HashMap<String, Runnable> menuOptions = new HashMap<>();
 
 
-    Add(Records records, MenuControl menuControl) {
-        this.menuControl = menuControl;
-    }
     Add(Records students, Records faculty, Records staff, MenuControl menuControl) {
         this.records = new ArrayList<>(List.of(students, faculty, staff));
         this.menuControl = menuControl;

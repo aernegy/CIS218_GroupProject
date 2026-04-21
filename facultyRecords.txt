@@ -18,5 +18,3 @@ ID,FULLNAME,COURSES,SALARY
 1678956,Mia Jackson,Sociology,115000
 1789078,Alexander White,Neuroscience,158000
 1890190,Charlotte Harris,Anthropology,109000
-1901212,Benjamin Clark,Computer Engineering,175000
-2012334,Zoe Lewis,Linguistics,101000

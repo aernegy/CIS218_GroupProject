@@ -22,7 +22,7 @@ public class View implements Menu {
                     )
             );
         }
-        menuOptions.put("A", () -> menuControl.setMenu(new Add(records, menuControl)));
+        menuOptions.put("A", () -> menuControl.setMenu(new AddDialog(records, menuControl)));
         menuOptions.put("S", () -> menuControl.setMenu(new Search(records, menuControl)));
         menuOptions.put("Q", () -> menuControl.setMenu(new MainMenu(menuControl)));
     }
@@ -33,7 +33,9 @@ public class View implements Menu {
         boolean column1 = true;
 
         System.out.println("\n==================================================");
-        System.out.printf("%S", records.getRecordsName());
+        if (records.getRecordsName() != null) {
+            System.out.printf("%S", records.getRecordsName());
+        } else System.out.printf("%S", "SEARCH");
         System.out.println("\n==================================================");
 
         if (records.size() == 0) {

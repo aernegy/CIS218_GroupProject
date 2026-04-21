@@ -3,9 +3,9 @@ package SchoolRecords.Menus;
 import SchoolRecords.Records.Records;
 import SchoolRecords.Records.Record;
 import static SchoolRecords.Misc.Utility.columnCheck;
+import static SchoolRecords.Misc.Utility.sleep;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 
 public class Update implements Menu {
@@ -88,6 +88,8 @@ class UpdateDialog implements Menu {
     public void runUserInput(String input) {
         record.set(index, input);
         System.out.println("\nUPDATED SUCCESSFULLY!");
+
+        sleep(2000);
         menuOptions.get("Q").run();
     }
 }
