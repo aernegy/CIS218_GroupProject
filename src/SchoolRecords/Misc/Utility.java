@@ -41,9 +41,15 @@ public class Utility {
         } catch (FileNotFoundException e) {
                 System.out.println(e.getMessage());
                 switch (fileName) {
-                    case "studentRecords.txt" -> result.add(new ArrayList<>(List.of("ID,FULLNAME,MAJOR,GPA")));
-                    case "facultyRecords.txt" -> result.add(new ArrayList<>(List.of("ID,FULLNAME,COURSES,SALARY")));
-                    case "staffRecords.txt" -> result.add(new ArrayList<>(List.of("ID,FULLNAME,DEPARTMENT,SALARY")));
+                    case "studentRecords.txt":
+                        result.add(new ArrayList<>(List.of("STUDENT")));
+                        result.add(new ArrayList<>(List.of("ID,FULLNAME,MAJOR,GPA")));
+                    case "facultyRecords.txt":
+                        result.add(new ArrayList<>(List.of("FACULTY")));
+                        result.add(new ArrayList<>(List.of("ID,FULLNAME,COURSES,SALARY")));
+                    case "staffRecords.txt":
+                        result.add(new ArrayList<>(List.of("STAFF")));
+                        result.add(new ArrayList<>(List.of("ID,FULLNAME,DEPARTMENT,SALARY")));
                 }
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
