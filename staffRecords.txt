@@ -1,0 +1,22 @@
+STAFF
+ID,FULLNAME,DEPARTMENT,SALARY
+4456789,Emma Thompson,Administration,62000
+5567901,James Rodriguez,IT Services,78000
+6679012,Sophia Martinez,Admissions,55000
+7789123,Michael Chen,Facilities Management,68000
+8890234,Olivia Patel,Human Resources,71000
+9901345,William Johnson,Student Affairs,59000
+1012456,Isabella Garcia,Finance Office,65000
+1123567,David Kim,Library Services,53000
+1234678,Ava Nguyen,Marketing and Communications,57000
+1345789,Robert Wilson,Registrar Office,61000
+1456890,Mia Anderson,Health Services,72000
+1567901,Alexander Brown,Career Services,58000
+1679012,Charlotte Lee,International Student Office,64000
+1789123,Daniel Taylor,Procurement and Contracts,69000
+1890234,Zoe Harris,Security and Campus Safety,52000
+1901345,Benjamin Clark,Residential Life,60000
+2012456,Emily Davis,Alumni Relations,67000
+2123567,Christopher Moore,Research Administration,75000
+2234678,Abigail White,Accounting,63000
+2345789,Liam Jackson,Information Technology Support,82000
