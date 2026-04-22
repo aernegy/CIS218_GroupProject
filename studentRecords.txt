@@ -19,3 +19,4 @@ ID,FULLNAME,MAJOR,GPA
 0023456,Zoe Nakamura,Neuroscience,4.00
 0076543,Benjamin Dubois,International Relations,3.70
 0054321,Harper Singh,Chemical Engineering,3.82
+6746576476,JACK BEAN STALK,BIOLOGY,3.5

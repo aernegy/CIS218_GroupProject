@@ -44,17 +44,10 @@ public class Delete implements Menu {
             System.out.printf("%34S","DELETION CANCELLED");
             System.out.println("\n==================================================");
 
-            try {
-                Thread.sleep(2000);
-            }
-            catch (InterruptedException e) {
-                System.out.println(e.getMessage());
-            }
+            sleep(2000);
 
             menuControl.setMenu(new Details(records, columns, record, menuControl));
         }
-
-
     }
 
 

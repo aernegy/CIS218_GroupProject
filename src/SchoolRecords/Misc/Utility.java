@@ -76,7 +76,12 @@ public class Utility {
         if (intCheck.contains(columns.get(index))) {
             return input.matches("-?\\d+");
         } else if (columns.get(index).equals("GPA")) {
-            return (0 <= Double.parseDouble(input) && Double.parseDouble(input) <= 4.0);
+            try {
+                return (0 <= Double.parseDouble(input) && Double.parseDouble(input) <= 4.0);
+            } catch (NumberFormatException e) {
+                return false;
+            }
+
         } else {
             return true;
         }
