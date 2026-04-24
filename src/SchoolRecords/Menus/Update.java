@@ -2,9 +2,10 @@ package SchoolRecords.Menus;
 
 import SchoolRecords.Records.Records;
 import SchoolRecords.Records.Record;
+import static SchoolRecords.Misc.Utility.columnCheck;
+import static SchoolRecords.Misc.Utility.sleep;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 
 public class Update implements Menu {
@@ -28,14 +29,15 @@ public class Update implements Menu {
 
     @Override
     public void print() {
-        System.out.println("\n--------------------");
-        System.out.println("Select field to update\n");
+        System.out.println("\n==================================================");
+        System.out.println("SELECT FIELD TO UPDATE\n");
 
         for (int i = 0; i < this.columns.size(); i++) {
-            System.out.println((i + 1) + " - " + this.columns.get(i) + ": " + record.get(i));
+            System.out.printf("%S", "[" + (i + 1) + "] " + this.columns.get(i) + ": " + record.get(i) + "\n");
         }
 
-        System.out.println("\nQ - Return");
+        System.out.println("\n[Q] RETURN");
+        System.out.println("==================================================");
     }
 
 
@@ -70,23 +72,15 @@ class UpdateDialog implements Menu {
 
     @Override
     public void print() {
-        System.out.println("\n--------------------");
-        System.out.println("Initial value of " + columns.get(this.index) + ": " + record.get(this.index));
-        System.out.print("Enter new value: ");
+        System.out.println("==================================================");
+        System.out.printf("%S", "Initial value of " + columns.get(this.index) + ": " + record.get(this.index) + "\n");
+        System.out.printf("%S", "Enter new value: ");
     }
 
 
     @Override
     public boolean checkUserInput(String input) {
-        ArrayList<String> intCheck = new ArrayList<>(List.of("ID", "SALARY"));
-
-        if (intCheck.contains(columns.get(index))) {
-            return input.matches("-?\\d+");
-        } else if (columns.get(index).equals("GPA")) {
-            return (0 <= Double.parseDouble(input) && Double.parseDouble(input) <= 4.0);
-        } else {
-            return true;
-        }
+        return columnCheck(input, columns, index);
     }
 
 
@@ -94,6 +88,8 @@ class UpdateDialog implements Menu {
     public void runUserInput(String input) {
         record.set(index, input);
         System.out.println("\nUPDATED SUCCESSFULLY!");
+
+        sleep(2000);
         menuOptions.get("Q").run();
     }
 }

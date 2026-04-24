@@ -1,1 +1,1 @@
-ERROR: Please enter an option from the menu
+ERROR: PLEASE ENTER A VALID OPTION

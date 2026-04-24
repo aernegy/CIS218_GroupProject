@@ -13,26 +13,28 @@ public class Details implements SchoolRecords.Menus.Menu {
     Record record;
 
 
-    Details(Records records, ArrayList<String> columns, Record record, SchoolRecords.Menus.MenuControl menuControl) {
+    Details(Records records, ArrayList<String> columns, Record record, MenuControl menuControl) {
         this.records = records;
         this.columns = columns;
         this.record = record;
 
         menuOptions.put("U", () -> menuControl.setMenu(new Update(records, columns, record, menuControl)));
-        menuOptions.put("D", Delete::new);
+        menuOptions.put("D", () -> menuControl.setMenu(new Delete(records, columns, record, menuControl)));
         menuOptions.put("Q", () -> menuControl.setMenu(new View(records, menuControl)));
     }
 
 
     @Override
     public void print() {
-        System.out.println("\n--------------------");
+        System.out.println("\n==================================================");
+        System.out.printf("%S", "TYPE: " + records.getRecordsName() + "\n");
 
         for (int i = 0; i < this.columns.size(); i++) {
-            System.out.println(this.columns.get(i) + ": " + record.get(i));
+            System.out.printf("%S",this.columns.get(i) + ": " + record.get(i) + "\n");
         }
 
-        System.out.println("\nU - Update details\nD - Delete record\nQ - Return");
+        System.out.println("\n[U] UPDATE DETAILS \n[D] DELETE RECORD\n[Q] RETURN");
+        System.out.println("==================================================");
     }
 
 

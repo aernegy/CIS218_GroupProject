@@ -1,21 +1,20 @@
-ID,TYPE,FULLNAME,COURSES,SALARY
-1129346,FACULTY,Nicholas Weaver,Mathematics,150000
-2234578,FACULTY,Emily Rodriguez,Computer Science,165000
-3345690,FACULTY,Michael Chen,Physics,142000
-4456712,FACULTY,Sarah Patel,Biology,12000000000
-5567834,FACULTY,David Thompson,History,112000
-6678956,FACULTY,Rachel Kim,English Literature,105000
-7789078,FACULTY,James Wilson,Chemistry,155000
-8890190,FACULTY,Olivia Martinez,Economics,128000
-9901212,FACULTY,Robert Garcia,Psychology,118000
-1012334,FACULTY,Sophia Lee,Political Science,122000
-1123456,FACULTY,Daniel Brown,Mechanical Engineering,172000
-1234578,FACULTY,Ava Taylor,Philosophy,98000
-1345690,FACULTY,William Anderson,Environmental Science,135000
-1456712,FACULTY,Isabella Thomas,Art History,104000
-1567834,FACULTY,Christopher Moore,Statistics,148000
-1678956,FACULTY,Mia Jackson,Sociology,115000
-1789078,FACULTY,Alexander White,Neuroscience,158000
-1890190,FACULTY,Charlotte Harris,Anthropology,109000
-1901212,FACULTY,Benjamin Clark,Computer Engineering,175000
-2012334,FACULTY,Zoe Lewis,Linguistics,101000
+FACULTY
+ID,FULLNAME,COURSES,SALARY
+1129346,Nicholas Weaver,Mathematics,150000
+2234578,Emily Rodriguez,Computer Science,165000
+3345690,Michael Chen,Physics,142000
+4456712,Sarah Patel,Biology,12000000000
+5567834,David Thompson,History,112000
+6678956,Rachel Kim,English Literature,105000
+7789078,James Wilson,Chemistry,155000
+8890190,Olivia Martinez,Economics,128000
+9901212,Robert Garcia,Psychology,118000
+1012334,Sophia Lee,Political Science,122000
+1123456,Daniel Brown,Mechanical Engineering,172000
+1234578,Ava Taylor,Philosophy,98000
+1345690,William Anderson,Environmental Science,135000
+1456712,Isabella Thomas,Art History,104000
+1567834,Christopher Moore,Statistics,148000
+1678956,Mia Jackson,Sociology,115000
+1789078,Alexander White,Neuroscience,158000
+1890190,Charlotte Harris,Anthropology,109000

@@ -25,9 +25,10 @@ public class Search implements Menu {
 
     @Override
     public void print() {
-        System.out.println("\n--------------------");
+        System.out.println("\n==================================================");
         System.out.println("RECORDS SEARCH");
         System.out.println("Search for name, ID, department, courses, etc.: ");
+        System.out.println("==================================================");
     }
 
 
@@ -41,7 +42,7 @@ public class Search implements Menu {
     public void runUserInput(String input) {
         for (Record record : searchRecords) {
             for (String field : record.getSearch()) {
-                if (field.contains(input)) results.add(record);
+                if (field.toUpperCase().contains(input.toUpperCase())) results.add(record);
             }
         }
 

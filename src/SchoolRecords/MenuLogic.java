@@ -25,16 +25,16 @@ public class MenuLogic implements MenuControl {
         try (BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in))) {
             while (true) {
                 if (quit) {
-                    students.save("studentRecords.txt");
-                    faculty.save("facultyRecords.txt");
-                    staff.save("staffRecords.txt");
+                    students.save();
+                    faculty.save();
+                    staff.save();
                     break;
                 }
 
                 menu.print();
 
                 if (error) {
-                    System.out.println(errorMessage);
+                    System.out.printf("%S", "\n" + errorMessage + "\n");
                     error = false;
                 }
 

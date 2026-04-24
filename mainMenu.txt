@@ -3,5 +3,3 @@ Faculty
 Staff
 Search
 Add
-Delete
-Quit
