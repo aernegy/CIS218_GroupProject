@@ -1,4 +1,4 @@
-package SchoolRecords.Menus;
+package schoolrecords.menus;
 
 public interface Menu {
     boolean checkUserInput(String input);
