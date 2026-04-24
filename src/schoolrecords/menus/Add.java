@@ -5,13 +5,12 @@ import static schoolrecords.misc.Utility.centerPrint;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
 import schoolrecords.records.Records;
 
 public class Add implements Menu {
   private final ArrayList<Records> records;
+  /* Explain */
   private final HashMap<String, Runnable> menuOptions = new HashMap<>();
-
 
   Add(Records students, Records faculty, Records staff, MenuControl menuControl) {
     this.records = new ArrayList<>(List.of(students, faculty, staff));

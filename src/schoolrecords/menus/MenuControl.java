@@ -1,5 +1,5 @@
 package schoolrecords.menus;
 
 public interface MenuControl {
-    void setMenu(Menu newMenu);
+  void setMenu(Menu newMenu);
 }

@@ -8,7 +8,6 @@ import static schoolrecords.misc.Utility.loadMenuText;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
 import schoolrecords.MenuLogic;
 
 public class MainMenu implements Menu {

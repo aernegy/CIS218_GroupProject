@@ -45,6 +45,9 @@ public class Utility {
       while ((line = fileReader.readLine()) != null) {
         result.add(line);
       }
+
+      fileReader.close();
+
     } catch (IOException e) {
       System.out.println("Error: " + e.getMessage());
     }
@@ -64,6 +67,7 @@ public class Utility {
       }
 
       fileReader.close();
+
     } catch (FileNotFoundException e) {
       System.out.println(e.getMessage());
       switch (fileName) {

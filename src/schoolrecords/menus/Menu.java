@@ -1,9 +1,9 @@
 package schoolrecords.menus;
 
 public interface Menu {
-    boolean checkUserInput(String input);
+  void print();
 
-    void runUserInput(String input);
+  boolean checkUserInput(String input);
 
-    void print();
+  void runUserInput(String input);
 }

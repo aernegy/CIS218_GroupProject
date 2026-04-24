@@ -3,7 +3,6 @@ package schoolrecords;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
-
 import schoolrecords.menus.MainMenu;
 import schoolrecords.menus.Menu;
 import schoolrecords.menus.MenuControl;

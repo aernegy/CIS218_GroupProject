@@ -5,7 +5,6 @@ import static schoolrecords.misc.Utility.columnCheck;
 import static schoolrecords.misc.Utility.sleep;
 
 import java.util.ArrayList;
-
 import schoolrecords.records.Record;
 import schoolrecords.records.Records;
 

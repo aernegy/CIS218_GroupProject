@@ -5,7 +5,6 @@ import static schoolrecords.misc.Utility.columnCheck;
 import static schoolrecords.misc.Utility.sleep;
 
 import java.util.ArrayList;
-
 import schoolrecords.records.Record;
 import schoolrecords.records.Records;
 
@@ -27,8 +26,10 @@ public class AddDialog implements Menu {
   public void print() {
     System.out.println("\n==================================================");
 
+    /* Explain */
     System.out.printf("%S", "TYPE: " + records.getRecordsName() + "\n");
     for (int i = 0; i < index; i++) {
+      /* Explain */
       System.out.printf("%S", columns.get(i) + ": " + recordValues.get(i) + "\n");
     }
 

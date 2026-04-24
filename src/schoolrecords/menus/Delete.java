@@ -4,7 +4,6 @@ import static schoolrecords.misc.Utility.sleep;
 import static schoolrecords.misc.Utility.centerPrint;
 
 import java.util.ArrayList;
-
 import schoolrecords.records.Record;
 import schoolrecords.records.Records;
 

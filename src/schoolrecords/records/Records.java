@@ -15,8 +15,8 @@ public class Records {
 
   public Records(String fileName) {
     ArrayList<ArrayList<String>> load = loadRecords(fileName);
-    this.recordsName = load.removeFirst().removeFirst();
-    this.columns = load.removeFirst();
+    this.recordsName = load.remove(0).remove(0);
+    this.columns = load.remove(0);
     this.fileName = fileName;
 
     for (ArrayList<String> recordValues : load) {
@@ -67,7 +67,7 @@ public class Records {
       save.add(record.getAll());
     }
 
-    save.addFirst(columns);
+    save.add(0, columns);
 
     saveRecords(save, fileName);
 
@@ -81,9 +81,9 @@ public class Records {
       save.add(record.getAll());
     }
 
-    save.addFirst(columns);
+    save.add(0, columns);
 
-    save.addFirst(new ArrayList<>(List.of(recordsName)));
+    save.add(0, new ArrayList<>(List.of(recordsName)));
 
     saveRecords(save, fileName);
   }

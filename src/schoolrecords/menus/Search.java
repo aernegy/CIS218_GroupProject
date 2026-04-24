@@ -1,7 +1,6 @@
 package schoolrecords.menus;
 
 import java.util.ArrayList;
-
 import schoolrecords.records.Record;
 import schoolrecords.records.Records;
 

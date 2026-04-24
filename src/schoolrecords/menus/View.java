@@ -1,7 +1,6 @@
 package schoolrecords.menus;
 
 import java.util.HashMap;
-
 import schoolrecords.records.Records;
 
 public class View implements Menu {

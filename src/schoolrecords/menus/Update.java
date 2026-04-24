@@ -2,7 +2,6 @@ package schoolrecords.menus;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
 import schoolrecords.records.Record;
 import schoolrecords.records.Records;
 
