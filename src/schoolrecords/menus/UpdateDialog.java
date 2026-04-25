@@ -44,7 +44,7 @@ public class UpdateDialog implements Menu {
 
     System.out.println("\n==================================================");
     centerPrint("UPDATED SUCCESSFULLY!", 50);
-    System.out.println("\n==================================================");
+    System.out.println("==================================================");
 
     sleep(2000);
     menuControl.setMenu(new Update(records, columns, record, menuControl));

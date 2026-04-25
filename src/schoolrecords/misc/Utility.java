@@ -11,20 +11,27 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Utility {
+
+  /* To reduce repetitive center printing in code */
   public static void centerPrint(String text, int length) {
     int padding = (length - text.length()) / 2;
     System.out.printf("%" + padding + "S%S%" + padding + "S%n", "", text, "");
   }
 
+  /* Checks for legal user values when entering values into certain columns, whether adding a
+   * new Record into a Records or updating a Record */
   public static boolean columnCheck(String input, ArrayList<String> columns, int index) {
     ArrayList<String> intCheck = new ArrayList<>(List.of("ID", "SALARY"));
 
+    /* If the input is only whitespace. */
     if (input.matches("\\s*")) {
       return false;
     } else if (intCheck.contains(columns.get(index))) {
+      /* Returns true if the input is one or more digits. Allows for negative sign in front. */
       return input.matches("-?\\d+");
     } else if (columns.get(index).equals("GPA")) {
       try {
+        /* Returns true if input is a double and is between 0 and 4. */
         return (0 <= Double.parseDouble(input) && Double.parseDouble(input) <= 4.0);
       } catch (NumberFormatException e) {
         return false;
@@ -69,6 +76,8 @@ public class Utility {
       fileReader.close();
 
     } catch (FileNotFoundException e) {
+      /* If file was not found, just create a dummy 'file' and give it to the program to work with.
+       * A new file is then only written when saveRecords is called. */
       System.out.println(e.getMessage());
       switch (fileName) {
         case "studentRecords.txt":
@@ -96,6 +105,7 @@ public class Utility {
       BufferedWriter fileWriter = new BufferedWriter(new FileWriter(fileName));
 
       for (ArrayList<String> record : records) {
+        /* Delimit field values in a row by commas, converting them into upper case */
         fileWriter.write(String.join(",", record).toUpperCase());
         fileWriter.newLine();
       }
@@ -107,6 +117,7 @@ public class Utility {
     }
   }
 
+  /* Pauses the program momentarily */
   public static void sleep(long milis) {
     try {
       Thread.sleep(milis);

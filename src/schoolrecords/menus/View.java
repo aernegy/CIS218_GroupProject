@@ -1,17 +1,23 @@
 package schoolrecords.menus;
 
+import static schoolrecords.MenuLogic.getFaculty;
+import static schoolrecords.MenuLogic.getStaff;
+import static schoolrecords.MenuLogic.getStudents;
+
 import java.util.HashMap;
 import schoolrecords.records.Records;
 
 public class View implements Menu {
+  /* Refer to Add for an explanation */
   private static final HashMap<String, Runnable> menuOptions = new HashMap<>();
   private final Records records;
-  private final boolean enableAdd;
+  private boolean generalAdd;
 
-  View(Records records, MenuControl menuControl, boolean enableAdd) {
+  View(Records records, MenuControl menuControl, boolean generalAdd) {
     this.records = records;
-    this.enableAdd = enableAdd;
+    this.generalAdd = generalAdd;
 
+    /* For every Record in records, put a menu option to open a Details for that Record */
     for (int i = 0; i < records.size(); ) {
       int index = i;
       menuOptions.put(
@@ -23,8 +29,12 @@ public class View implements Menu {
           )
       );
     }
-      if (enableAdd) {
-          menuOptions.put("A", () -> menuControl.setMenu(new AddDialog(records, menuControl)));
+      /* If we know what Records the user wants to add into, add into that Records.
+      *  If not, then open a menu to first ask the user what Records to add into. */
+      if (generalAdd) {
+        menuOptions.put("A", () -> menuControl.setMenu(new Add(getStudents(), getFaculty(), getStaff(), menuControl)));
+      } else {
+        menuOptions.put("A", () -> menuControl.setMenu(new AddDialog(records, menuControl)));
       }
     menuOptions.put("S", () -> menuControl.setMenu(new Search(records, menuControl)));
     menuOptions.put("Q", () -> menuControl.setMenu(new MainMenu(menuControl)));
@@ -63,10 +73,7 @@ public class View implements Menu {
       System.out.println();
     }
 
-    if (enableAdd) {
-      System.out.println("\n[A] ADD");
-    }
-    System.out.println("[S] SEARCH\n[Q] RETURN TO MAIN MENU\n");
+    System.out.println("\n[A] ADD\n[S] SEARCH\n[Q] RETURN TO MAIN MENU\n");
     System.out.println("==================================================");
   }
 

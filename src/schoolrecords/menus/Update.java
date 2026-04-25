@@ -6,6 +6,7 @@ import schoolrecords.records.Record;
 import schoolrecords.records.Records;
 
 public class Update implements Menu {
+  /* Refer to Add for explanation */
   private static final HashMap<String, Runnable> menuOptions = new HashMap<>();
   private final ArrayList<String> columns;
   private final Record record;

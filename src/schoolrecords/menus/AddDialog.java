@@ -11,9 +11,9 @@ import schoolrecords.records.Records;
 public class AddDialog implements Menu {
   private final Records records;
   private final MenuControl menuControl;
-  private int index = 0;
   private final ArrayList<String> recordValues = new ArrayList<>();
   private final ArrayList<String> columns;
+  private int index = 0;
 
   AddDialog(Records records, MenuControl menuControl) {
     this.records = records;
@@ -26,10 +26,10 @@ public class AddDialog implements Menu {
   public void print() {
     System.out.println("\n==================================================");
 
-    /* Explain */
+    /* Print the string in the second parameter, but in upper case. */
     System.out.printf("%S", "TYPE: " + records.getRecordsName() + "\n");
     for (int i = 0; i < index; i++) {
-      /* Explain */
+      /* Refer to above comment. */
       System.out.printf("%S", columns.get(i) + ": " + recordValues.get(i) + "\n");
     }
 
@@ -53,12 +53,12 @@ public class AddDialog implements Menu {
 
       System.out.println("\n==================================================");
       centerPrint("ADDED SUCCESSFULLY", 50);
-      System.out.println("\n==================================================");
+      System.out.println("==================================================");
 
       records.save();
       sleep(2000);
 
-      menuControl.setMenu(new View(records, menuControl, true));
+      menuControl.setMenu(new View(records, menuControl, false));
     }
   }
 }

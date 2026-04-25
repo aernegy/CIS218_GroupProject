@@ -6,6 +6,7 @@ import schoolrecords.records.Record;
 import schoolrecords.records.Records;
 
 public class Details implements schoolrecords.menus.Menu {
+  /* Refer to Add for an explanation. */
   private static final HashMap<String, Runnable> menuOptions = new HashMap<>();
   private final Records records;
   private final ArrayList<String> columns;
@@ -20,16 +21,19 @@ public class Details implements schoolrecords.menus.Menu {
         menuControl.setMenu(new Update(records, columns, record, menuControl))
     );
     menuOptions.put("D", () -> menuControl.setMenu(new Delete(records, columns, record, menuControl)));
-    menuOptions.put("Q", () -> menuControl.setMenu(new View(records, menuControl, true)));
+    menuOptions.put("Q", () -> menuControl.setMenu(new View(records, menuControl, false)));
   }
 
 
   @Override
   public void print() {
     System.out.println("\n==================================================");
+    /* Print the string in the second parameter, but in upper case. */
     System.out.printf("%S", "TYPE: " + records.getRecordsName() + "\n");
 
+    /* Print each field in a Record */
     for (int i = 0; i < this.columns.size(); i++) {
+      /* Print the string in the second parameter, but in upper case. */
       System.out.printf("%S", this.columns.get(i) + ": " + record.get(i) + "\n");
     }
 

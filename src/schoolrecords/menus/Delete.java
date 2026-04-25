@@ -41,17 +41,17 @@ public class Delete implements Menu {
       records.delete(record.get("ID"));
       System.out.println("\n==================================================");
       centerPrint("DELETION SUCCESSFUL", 50);
-      System.out.println("\n==================================================");
+      System.out.println("==================================================");
 
       sleep(2000);
 
       records.save();
-      menuControl.setMenu(new View(records, menuControl, true));
+      menuControl.setMenu(new View(records, menuControl, false));
 
     } else {
       System.out.println("\n==================================================");
       centerPrint("DELETION CANCELLED", 50);
-      System.out.println("\n==================================================");
+      System.out.println("==================================================");
 
       sleep(2000);
 

@@ -47,6 +47,8 @@ public class Search implements Menu {
       }
     }
 
-    menuControl.setMenu(new View(results, menuControl, false));
+    /* generalAdd set to true, since we do not know what Records the user wishes to add into
+     * from context. */
+    menuControl.setMenu(new View(results, menuControl, true));
   }
 }

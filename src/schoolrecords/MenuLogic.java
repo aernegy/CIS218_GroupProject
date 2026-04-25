@@ -8,6 +8,12 @@ import schoolrecords.menus.Menu;
 import schoolrecords.menus.MenuControl;
 import schoolrecords.records.Records;
 
+/* AI inspired: */
+/* By making MenuLogic implement MenuControl, we can pass MenuLogic into menus. However, the
+ * parameter of every menu that we pass MenuLogic into expects a MenuControl. This still works,
+ * since MenuLogic is an instance of MenuControl. We do this in order that the menus that we pass
+ * MenuLogic into can only access the features of MenuControl, i.e. setMenu, the only method in
+ * MenuControl. */
 public class MenuLogic implements MenuControl {
   private Menu menu;
   private static boolean quit = false;
@@ -23,7 +29,15 @@ public class MenuLogic implements MenuControl {
     boolean error = false;
 
     try (BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in))) {
+      /* The 'heartbeat' of the program. Implements the following loop for user experience:
+       * 1) The menu is printed, with an error message if necessary.
+       * 2) The user submits an input
+       * 3) The input is checked
+       * 4) If valid, the input is run
+       * Since every page in the program implements Menu, this enables the same loop to be used
+       * throughout the program. */
       while (true) {
+        /* If the user wishes to quit, interrupt the program loop and leave */
         if (quit) {
           students.save();
           faculty.save();
@@ -31,8 +45,11 @@ public class MenuLogic implements MenuControl {
           break;
         }
 
+        /* Print the menu that is open */
         menu.print();
 
+        /* If there is an error in the previous loop,
+         * display error message before user inputs again */
         if (error) {
           System.out.printf("%S", "\n" + errorMessage + "\n");
           error = false;
@@ -40,6 +57,8 @@ public class MenuLogic implements MenuControl {
 
         String input = userInput.readLine();
 
+        /* If the user's input is valid (rules differing between menus), run.
+         * Otherwise, call an error next loop. */
         if (menu.checkUserInput(input.toUpperCase())) {
           menu.runUserInput(input);
         } else {
@@ -53,6 +72,7 @@ public class MenuLogic implements MenuControl {
   }
 
 
+  /* Enables menus to change the menu that is open */
   @Override
   public void setMenu(Menu newMenu) {
     this.menu = newMenu;

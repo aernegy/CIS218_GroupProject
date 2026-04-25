@@ -7,9 +7,11 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+/* Represents a collection of individuals of the same type. */
 public class Records {
   private String recordsName;
   ArrayList<String> columns = new ArrayList<>();
+  /* Refer to Record for explanation */
   private final LinkedHashMap<String, Record> records = new LinkedHashMap<>();
   private String fileName;
 
@@ -60,6 +62,7 @@ public class Records {
   }
 
 
+  /* Redundant function in case a feature is added where user can choose save location. */
   public void save(String fileName) {
     ArrayList<ArrayList<String>> save = new ArrayList<>();
 
@@ -67,7 +70,11 @@ public class Records {
       save.add(record.getAll());
     }
 
+    /* Put columns at the top of the file */
     save.add(0, columns);
+
+    /* Put recordsName at the top of the file, before columns */
+    save.add(0, new ArrayList<>(List.of(recordsName)));
 
     saveRecords(save, fileName);
 
@@ -81,8 +88,10 @@ public class Records {
       save.add(record.getAll());
     }
 
+    /* Put columns at the top of the file */
     save.add(0, columns);
 
+    /* Put recordsName at the top of the file, before columns */
     save.add(0, new ArrayList<>(List.of(recordsName)));
 
     saveRecords(save, fileName);
