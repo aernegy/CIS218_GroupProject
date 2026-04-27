@@ -20,6 +20,7 @@ public class Add implements Menu {
     /* For the user to select what type of Record to add */
     this.records = new ArrayList<>(List.of(students, faculty, staff));
 
+    /* Assigns each type of Records to a number to select from menu options */
     for (int i = 0; i < records.size(); ) {
       int index = i;
       menuOptions.put(Integer.toString(++i), () ->

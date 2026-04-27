@@ -8,7 +8,7 @@ import java.util.HashMap;
 import schoolrecords.records.Records;
 
 public class View implements Menu {
-  /* Refer to Add for an explanation */
+  /* Refer to Add for an explanation of Hashmaps. */
   private static final HashMap<String, Runnable> menuOptions = new HashMap<>();
   private final Records records;
   private boolean generalAdd;

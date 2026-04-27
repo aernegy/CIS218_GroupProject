@@ -12,7 +12,7 @@ import schoolrecords.MenuLogic;
 
 public class MainMenu implements Menu {
   private final ArrayList<String> mainMenu = loadMenuText("mainMenu.txt");
-  /* Refer to Add for an explanation */
+  /* Refer to Add for an explanation of Hashmaps. */
   private static final HashMap<String, Runnable> menuOptions = new HashMap<>();
 
   public MainMenu(MenuControl menuControl) {

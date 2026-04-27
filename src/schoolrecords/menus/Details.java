@@ -6,7 +6,7 @@ import schoolrecords.records.Record;
 import schoolrecords.records.Records;
 
 public class Details implements schoolrecords.menus.Menu {
-  /* Refer to Add for an explanation. */
+  /* Refer to Add for an explanation of Hashmaps. */
   private static final HashMap<String, Runnable> menuOptions = new HashMap<>();
   private final Records records;
   private final ArrayList<String> columns;

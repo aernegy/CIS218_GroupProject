@@ -11,7 +11,7 @@ import java.util.List;
 public class Records {
   private String recordsName;
   ArrayList<String> columns = new ArrayList<>();
-  /* Refer to Record for explanation */
+  /* Refer to Record for explanation of LinkedHashMaps*/
   private final LinkedHashMap<String, Record> records = new LinkedHashMap<>();
   private String fileName;
 

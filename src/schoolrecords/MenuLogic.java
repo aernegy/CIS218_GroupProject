@@ -34,6 +34,8 @@ public class MenuLogic implements MenuControl {
        * 2) The user submits an input
        * 3) The input is checked
        * 4) If valid, the input is run
+       * 5) If not valid, nothing happens and an error message is printed next loop.
+       * 6) Loop back to step 1.
        * Since every page in the program implements Menu, this enables the same loop to be used
        * throughout the program. */
       while (true) {
