@@ -21,6 +21,8 @@ public class MainMenu implements Menu {
     menuOptions.put("3", () -> menuControl.setMenu(new View(getStaff(), menuControl, false)));
     menuOptions.put("4", () -> menuControl.setMenu(new Search(getStudents(), getFaculty(), getStaff(), menuControl)));
     menuOptions.put("5", () -> menuControl.setMenu(new Add(getStudents(), getFaculty(), getStaff(), menuControl)));
+
+    /* AI Inspired: Method References allow a method to be stored and later executed */
     menuOptions.put("Q", MenuLogic::quit);
   }
 
